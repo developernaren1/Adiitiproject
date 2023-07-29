@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% block loadstatic %}
+  {% load staticfiles %}
+  {% endblock loadstatic %}
+  {% block cssfiles %}
+  
+  <link rel="stylesheet" href="{% static 'cssfiles/indexstyle.css' %}">
+  <link rel="stylesheet" href="{% static 'cssfiles/query.css' %}">
+  <link rel="stylesheet" href="{% static 'cssfiles/css.css' %}">
+  <link rel="stylesheet" href="{% static 'cssfiles/owl.carousel.css' %}">
+  <link rel="stylesheet" href="{% static 'cssfiles/owl.theme.green.css' %}">
+  <!-- js -->
+  <script src="{% static 'jsfiles/jquery.min.js' %}"></script>
+  <script src="{% static 'jsfiles/owl.carousel.min.js' %}"></script>
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <!-- animation -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- fontawsome -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  {% endblock cssfiles %}
+</head>
+
+<body>
+  <!-- menu bar start -->
+  {% block mainmenubar %}
+ 
+  {% endblock mainmenubar %}
+  <!--menu end main boday start  -->
+  {% block mainbodydata %}
+
+  {% endblock mainbodydata %}
+  <!-- body end footer start  -->
+  {% block endfooter %}
+
+  {% endblock endfooter %}
+
+
+
+
+  <!--  -->
+  {% block owljs %}
+  <script>
+    $('.owl-carousel').owlCarousel({
+      center: true,
+      autoWidth: false,
+      items: 2,
+      loop: true,
+      autoplayHoverPause: true,
+      nav: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 1520,
+      smartSpeed: 1500,
+      animateIn: 'linear',
+      animateOut: 'linear',
+      responsive: {
+        0: {
+          items: 2,
+        },
+        350: {
+          items: 2,
+        },
+        600: {
+          items: 4,
+        },
+        800: {
+          items: 4,
+        },
+        1024: {
+          items: 6,
+        },
+      }
+    });
+  </script>
+  {% endblock owljs %}
+  <!--  -->
+  {% block bootstrapfile %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  {% endblock bootstrapfile %}
+</body>
+
+</html>

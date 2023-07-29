@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% block loadstatic %}
+{% load staticfiles %}
+{% endblock loadstatic %}
+<!-- body -->
+{% block mainbodydata %}
+<section class="sectionalpha container-fluid">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        {% for i in alldomains %}
+        <a href="#">{{i.add_domain}}</a>
+        {% endfor %}
+    </div>
+
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer ;color: #45f3ff;" onclick="openNav()">&#9776; Available
+            Domains</span>
+    </div>
+    <br>
+    <div class="row sosodata">
+        <div class="col-md-6 maindata">
+            <br>
+            <h1 class="animate__animated animate__bounceInLeft animate__slower">
+                We Provide Quality Premium domains Service<span>.</span></h1>
+            <hr style="background-color: white;">
+            {% for i in alldomains %}
+            {% if i.is_live %}
+            <h2 class="animate__animated animate__backInRight animate__slower dodomain">{{i.add_domain}}
+            </h2>
+            {% endif %}
+            {% endfor %}
+
+            <h2 class="animate__animated animate__backInRight animate__slower">This Premium domains
+                is for Sale
+            </h2>
+            <br>
+            <div class="owl-carousel owl-theme">
+                <div class="item"><img src="{% static "images/chit1.jpg" %}" alt="1" class="img-fluid"></div>
+                <div class="item"><img src="{% static "images/chit2.jpg" %}" alt="2" class="img-fluid"></div>
+                <div class="item"><img src="{% static "images/chit3.jpg" %}" alt="3" class="img-fluid"></div>
+                <div class="item"><img src="{% static "images/chit4.jpg" %}" alt="4" class="img-fluid"></div>
+                <div class="item"><img src="{% static "images/chit5.jpg" %}" alt="5" class="img-fluid"></div>
+                <div class="item"><img src="{% static "images/chit6.jpg" %}" alt="6" class="img-fluid"></div>
+                <div class="item"><img src="{% static "images/chit7.jpg" %}" alt="7" class="img-fluid"></div>
+                <div class="item"><img src="{% static "images/chit8.jpg" %}" alt="8" class="img-fluid"></div>
+                <div class="item"><img src="{% static "images/chit9.jpg" %}" alt="9" class="img-fluid"></div>
+            </div>
+        </div>
+        <div class="col-md-6 rcontainer" id="query">
+            <h2>If you wish to purchase Send Query!!</h2>
+            <form action="submitdata" method="post" autocomplete="off">
+                {% csrf_token %}
+                <div class="myrow100">
+                    <div class="mycol">
+                        <div class="myinputbox">
+                            <input type="text" name="nameofclient" id="" required>
+                            <span class="mytext">Name</span>
+                            <span class="myline"></span>
+                        </div>
+                    </div>
+                    <div class="mycol">
+                        <div class="myinputbox">
+                            <input type="email" name="emailofclient" id="" required>
+                            <span class="mytext">Email</span>
+                            <span class="myline"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="myrow100">
+                    <div class="mycol">
+                        <div class="myinputbox">
+                            <input type="number" name="ccode" id="" required>
+                            <span class="mytext">Country code</span>
+                            <span class="myline"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="mycol">
+                        <div class="myinputbox">
+                            <input type="text" name="phonenoofclient" id="" required>
+                            <span class="mytext">Phone no</span>
+                            <span class="myline"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+
+                <!--  -->
+
+                <!--  -->
+                <div class="myrow100">
+                    <div class="mycol">
+                        <div class="myinputbox mttextarea">
+                            <textarea name="messagedata" id="" cols="30" rows="10" required></textarea>
+                            <span class="mytext">Message</span>
+                            <span class="myline"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="myrow100">
+                    <div class="mycol">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+<!--  -->
+<script>
+    $('.owl-carousel').owlCarousel({
+        center: true,
+        autoWidth: false,
+        items: 2,
+        loop: true,
+        autoplayHoverPause: true,
+        nav: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 1520,
+        smartSpeed: 1500,
+        animateIn: 'linear',
+        animateOut: 'linear',
+        responsive: {
+            0: {
+                items: 2,
+            },
+            350: {
+                items: 2,
+            },
+            600: {
+                items: 4,
+            },
+            800: {
+                items: 4,
+            },
+            1024: {
+                items: 6,
+            },
+        }
+    });
+</script>
+<!-- menu button -->
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+{% endblock mainbodydata %}
